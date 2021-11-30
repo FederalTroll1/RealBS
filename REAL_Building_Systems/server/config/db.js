@@ -1,25 +1,30 @@
-// db.js
 /* eslint-env es6 */
 /* eslint-disable */
 
-const mongoose = require('mongoose');
+//mongoose is used to establish a connection between MongoDB
+//and the Express web application
+const mongooseConnection = require('mongoose');
 const config = require('config');
-const db = config.get('mongoURI');
+//gets the MongoDB credentials from the JSON file
+//uses this to establish a connection to Mongo
+const dbCredentials = config.get('mongoURI');
 
-const connectDB = async () => {
+//try a database connection
+const connectToDatabase = async () => {
   try {
-    await mongoose.connect(
-      db,
+    await mongooseConnection.connect(
+      dbCredentials,
       {
         useNewUrlParser: true
       }
     );
 
-    console.log('MongoDB is Connected...');
+    //indicate a successful connection to the database
+    console.log('MongoDB is Successfully Connected...');
   } catch (err) {
     console.error(err.message);
     process.exit(1);
   }
 };
 
-module.exports = connectDB;
+module.exports = connectToDatabase();

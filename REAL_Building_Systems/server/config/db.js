@@ -4,10 +4,10 @@
 //mongoose is used to establish a connection between MongoDB
 //and the Express web application
 const mongooseConnection = require('mongoose');
-const config = require('config');
+const configuration = require('config');
 //gets the MongoDB credentials from the JSON file
 //uses this to establish a connection to Mongo
-const dbCredentials = config.get('mongoURI');
+const dbCredentials = configuration.get('mongoURI');
 
 //try a database connection
 const connectToDatabase = async () => {

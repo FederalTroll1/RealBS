@@ -5,7 +5,8 @@
 const express = require('express');
 const router = express.Router();
 
-// Load Book model
+// Load Book model that has the connection format
+//required in the database
 const Book = require('../../models/Book');
 
 // @route GET api/books/test

@@ -47,14 +47,6 @@ class showBookDetails extends Component {
     const book = this.state.book;
     let BookItem = <div>
       <table className="table table-hover table-dark">
-        {/* <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead> */}
         <tbody>
         <tr>
           <th scope="row">1</th>
@@ -94,10 +86,10 @@ class showBookDetails extends Component {
         <div className="ShowBookDetails">
           <div className="container">
             <div className="row">
-              <div className="col-md-10 m-auto">
+              <div className="col-md-12 m-auto">
                 <br /> <br />
                 <Link to="/" className="btn btn-outline-warning float-left">
-                  Show Book List
+                  -Back to List-
                 </Link>
               </div>
               <br />
@@ -115,21 +107,17 @@ class showBookDetails extends Component {
 
             <div className="row">
               <div className="col-md-6">
-                <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this,book._id)}>Delete Book</button><br />
+                <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this,book._id)}>Remove Book</button><br />
               </div>
 
               <div className="col-md-6">
                 <Link to={`/edit-book/${book._id}`} className="btn btn-outline-info btn-lg btn-block">
-                  Edit Book
+                  Edit Book Details
                 </Link>
                 <br />
               </div>
 
             </div>
-            {/* <br />
-            <button type="button" class="btn btn-outline-info btn-lg btn-block">Edit Book</button>
-            <button type="button" class="btn btn-outline-danger btn-lg btn-block">Delete Book</button> */}
-
           </div>
         </div>
     );

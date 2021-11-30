@@ -1,5 +1,3 @@
-//default.json
-
 {
   "mongoURI":
   "mongodb+srv://FederalTroll1:IndicatePassedStop31102000@cluster0.ns7it.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"

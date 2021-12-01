@@ -9,9 +9,13 @@
     "axios": "^0.24.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "express": "^4.17.1",
+    "inspector-api": "^1.4.3",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "restify": "^8.6.0",
+    "validation": "^0.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,5 +40,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "browserify-fs": "^1.0.0",
+    "nodemon": "^2.0.15"
   }
 }

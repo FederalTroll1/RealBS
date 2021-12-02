@@ -28,7 +28,7 @@ class ShowBookList extends Component {
 
   render() {
     const books = this.state.books;
-    console.log("PrintBook: " + books);
+    //console.log("PrintBook: " + books);
     let bookList;
 
     if(!books) {

@@ -47,7 +47,7 @@ class CreateBook extends Component {
         this.props.history.push('/');
       })
       .catch(err => {
-        console.log("Error in CreateBook!");
+        console.log("Error in Creating Book, please enter values");
       })
   };
 
@@ -81,7 +81,6 @@ class CreateBook extends Component {
                     Please provide a value.
                   </div>
                 </div>
-                <br />
 
                 <div className='form-group'>
                   <input
@@ -157,7 +156,7 @@ class CreateBook extends Component {
                   </div>
                 </div>
 
-                <input type="submit" className="btn btn-outline-warning btn-block mt-4"/>
+                <input type="submit" className="btn btn-outline-success btn-block mt-4"/>
               </form>
 
               <script>
@@ -175,7 +174,8 @@ class CreateBook extends Component {
                       form.classList.add('was-validated');
                     }, false);
                   });
-                }, false)};
+                }, false)});
+
               </script>
 
           </div>

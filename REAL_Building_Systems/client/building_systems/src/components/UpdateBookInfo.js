@@ -206,7 +206,7 @@ class UpdateBookInfo extends Component {
                     form.classList.add('was-validated');
                   }, false);
                 });
-              }, false)};
+              }, false)});
             </script>
           </div>
         </div>

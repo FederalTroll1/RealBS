@@ -16,7 +16,7 @@ class showBookDetails extends Component {
     const pathArray = window.location.pathname.split('/');
     const secondLevelLocation = pathArray[2];
 
-    console.log("TEST" + secondLevelLocation);
+    //console.log("TEST" + secondLevelLocation);
     axios
         .get('http://localhost:8082/api/books/'+secondLevelLocation)
         .then(res => {
@@ -45,37 +45,33 @@ class showBookDetails extends Component {
   render() {
 
     const book = this.state.book;
-    let BookItem = <div>
-      <table className="table table-hover table-dark">
+    let SelectedBook = <div>
+      <table className="table table-sm table-hover table-dark">
+        <caption className={"text-center text-light"}>The above table shows details about the {book.title} book. Please edit mistakes
+        using the edit button, or alternatively remove the book from the system using the remove button.</caption>
         <tbody>
         <tr>
-          <th scope="row">1</th>
-          <td>Title</td>
+          <td>Title:</td>
           <td>{ book.title }</td>
         </tr>
         <tr>
-          <th scope="row">2</th>
-          <td>Author</td>
+          <td>Author:</td>
           <td>{ book.author }</td>
         </tr>
         <tr>
-          <th scope="row">3</th>
-          <td>ISBN</td>
+          <td>ISBN:</td>
           <td>{ book.isbn }</td>
         </tr>
         <tr>
-          <th scope="row">4</th>
-          <td>Publisher</td>
+          <td>Publisher:</td>
           <td>{ book.publisher }</td>
         </tr>
         <tr>
-          <th scope="row">5</th>
-          <td>Published Date</td>
+          <td>Published Date:</td>
           <td>{ book.published_date }</td>
         </tr>
         <tr>
-          <th scope="row">6</th>
-          <td>Description</td>
+          <td>Description:</td>
           <td>{ book.description }</td>
         </tr>
         </tbody>
@@ -87,34 +83,28 @@ class showBookDetails extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 m-auto">
-                <br /> <br />
-                <Link to="/" className="btn btn-outline-warning float-left">
-                  -Back to List-
-                </Link>
               </div>
               <br />
               <div className="col-md-8 m-auto">
-                <h1 className="display-4 text-center">Book's Record</h1>
-                <p className="lead text-center">
-                  View Book's Info
+                <h1 className="display-5 text-center"><u>{book.title}</u></h1>
+                <br />
+                <p>
+                  <Link to="/" className="btn btn-outline-dark translate-middle badge badge badge-secondary"> -Home Page- </Link>
+                  <Link to="/" className="btn btn-outline-dark float-right translate-middle badge badge badge-secondary"> -Back to List- </Link>
                 </p>
                 <hr /> <br />
               </div>
             </div>
             <div>
-              { BookItem }
+              { SelectedBook }
             </div>
-
+            <hr />
             <div className="row">
               <div className="col-md-6">
                 <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this,book._id)}>Remove Book</button><br />
               </div>
-
               <div className="col-md-6">
-                <Link to={`/edit-book/${book._id}`} className="btn btn-outline-info btn-lg btn-block">
-                  Edit Book Details
-                </Link>
-                <br />
+                <Link to={`/edit-book/${book._id}`} className="btn btn-outline-warning btn-lg btn-block">Edit Book Details</Link><br />
               </div>
 
             </div>

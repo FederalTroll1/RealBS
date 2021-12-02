@@ -26,10 +26,10 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install Dependencies
-        run: npm install
+        run: npm install --only=dev
 
       - name: Build
-        run: npm build
+        run: npm start
 
       - name: Test
         run: npm test

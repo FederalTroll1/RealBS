@@ -85,8 +85,8 @@ class UpdateBookInfo extends Component {
           </div>
 
           <div className="col-md-8 m-auto">
-          <form className='UpdateInfo' noValidate onSubmit={this.onSubmit}>
 
+          <form className='UpdateInfo' noValidate onSubmit={this.onSubmit}>
             <div className='form-group'>
               <label htmlFor="title"><u>Title:</u></label>
               <input

@@ -1,12 +1,4 @@
-
-function filterByTerm(inputArr, searchTerm) {
-  return inputArr.filter(function(arrayElement) {
-    return arrayElement.url.match(searchTerm);
-  });
-}
-
-
-  const sum = require('./setupTests.js');
+const sum = require('./setupTests.js');
 
   test('adds 1 + 2 to equal 3', () => {
     expect(sum(1, 2)).toBe(3);
@@ -15,6 +7,8 @@ function filterByTerm(inputArr, searchTerm) {
   test('there is no I in team', () => {
     expect('team').not.toMatch(/I/);
   });
+
+
 
   function compileAndroidCode() {
     throw new Error('you are using the wrong JDK');

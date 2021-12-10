@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
 
-
+//constructor for a book
+//includes all of the field values needed
+//in the database
 class CreateBook extends Component {
   constructor() {
     super();
@@ -24,6 +26,8 @@ class CreateBook extends Component {
   onSubmit = e => {
     e.preventDefault();
 
+    //set the current field values to the empty
+    //constructor values that can be posted to th database
     const data = {
       title: this.state.title,
       isbn: this.state.isbn,
@@ -33,9 +37,11 @@ class CreateBook extends Component {
       publisher: this.state.publisher
     };
 
+    //begin post request to the database with the data structure
     axios
       .post('http://localhost:8082/api/books', data)
       .then(res => {
+        //set the values for the post request
         this.setState({
           title: '',
           isbn:'',
@@ -46,13 +52,16 @@ class CreateBook extends Component {
         })
         this.props.history.push('/');
       })
+        //if error
       .catch(err => {
         console.log("Error in Creating Book, please enter values");
       })
   };
 
+  //visual website render
   render() {
     return (
+      //basic formatting of functionality using bootstrap
       <div className="CreateBook">
         <div className="container">
           <div className="row">
@@ -61,11 +70,17 @@ class CreateBook extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Add A New Entry</h1>
               <hr />
+              {
+                //button links
+              }
               <Link to="/" className="btn btn-outline-dark translate-middle badge badge badge-secondary"> -Home Page- </Link>
               <Link to="/" className="btn btn-outline-dark float-right translate-middle badge badge badge-secondary"> -Back to List- </Link>
               <hr />
               <br />
 
+              {
+                //create the form for users to enter new book information
+              }
               <form className='UpdateInfo' noValidate onSubmit={this.onSubmit}>
                 <div className='form-group'>
                   <input

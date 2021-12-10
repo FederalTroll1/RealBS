@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//render web pages
+//use the root file for entry when the application first runs
 ReactDOM.render(
   <React.StrictMode>
     <App />

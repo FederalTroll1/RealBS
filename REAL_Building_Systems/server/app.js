@@ -2,13 +2,12 @@
 /* eslint-disable */
 
 // app.js will act as the entry point for the project
+//Initial CPU Profiling for Observability is setup
 
+//Initialises database Atlas DB Connections
 const express = require('express');
 const connectDB = require('./config/db');
 var cors = require('cors');
-
-// routes
-const books = require('./routes/api/books');
 
 const app = express();
 
@@ -23,16 +22,15 @@ app.use(express.json({ extended: false }));
 
 app.get('/', (req, res) => res.send('Hello world!'));
 
-// use Routes
-app.use('/api/books', books);
-
 const port = process.argv[2] || process.env.PORT || 8082;
 
+//ensures that all hosting servers are running for load balancing
 app.get('/', (req, res) => {
   res.send(`Hello from port ${port}`);
   console.log(`Hello from port ${port}`);
 });
 
+//Checks expected ports are being used for load balancing
 app.listen(port, () => console.log(`Server running on port ${port}`));
 
 

@@ -7,20 +7,11 @@
 //Initialises database Atlas DB Connections
 const express = require('express');
 const connectDB = require('./config/db');
-var cors = require('cors');
 
 const app = express();
 
 // Connect Database
 connectDB();
-
-// cors
-app.use(cors({ origin: true, credentials: true }));
-
-// Init Middleware
-app.use(express.json({ extended: false }));
-
-app.get('/', (req, res) => res.send('Hello world!'));
 
 const port = process.argv[2] || process.env.PORT || 8082;
 
@@ -32,7 +23,6 @@ app.get('/', (req, res) => {
 
 //Checks expected ports are being used for load balancing
 app.listen(port, () => console.log(`Server running on port ${port}`));
-
 
 /*The following code supports CPU Profiling*/
 

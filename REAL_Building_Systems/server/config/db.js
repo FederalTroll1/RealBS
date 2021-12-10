@@ -20,7 +20,7 @@ const connectToDatabase = async () => {
     );
 
     //indicate a successful connection to the database
-    console.log('MongoDB is Successfully Connected...');
+    console.log('MongoDB Connected Successfully...');
   } catch (err) {
     console.error(err.message);
     process.exit(1);

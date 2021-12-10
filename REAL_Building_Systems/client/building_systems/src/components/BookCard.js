@@ -8,7 +8,7 @@ const BookCard = (props) => {
 
     return(
         <div className="card-container">
-            <img src="https://commapress.co.uk/books/the-book-of-cairo/cairo-provisional-v3/image%2Fspan3" alt="" />
+            <img src="https://commapress.co.uk/books/the-book-of-newcastle/newc_final_version_rgb/image%2Fspan3" alt="Book Placeholder" />
             <div className="desc">
                 <h2>
                     <Link to={`/show-book/${book._id}`}>

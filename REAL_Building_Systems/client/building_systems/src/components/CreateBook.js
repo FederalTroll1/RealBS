@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
 
+/*The Create Book Page allows a user to create a new book entry
+* that will then be stored in the MongoDB Atlas database. There
+* is use of form validation to ensure data integrity and make sure
+* that no book is able to have data missing about it.*/
+
 //constructor for a book
 //includes all of the field values needed
 //in the database
@@ -19,10 +24,12 @@ class CreateBook extends Component {
     };
   }
 
+  //change the current value of the named element
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  //when submitting to the database
   onSubmit = e => {
     e.preventDefault();
 
@@ -83,6 +90,9 @@ class CreateBook extends Component {
               }
               <form className='UpdateInfo' noValidate onSubmit={this.onSubmit}>
                 <div className='form-group'>
+                  {
+                    //Details for field in the form
+                  }
                   <input
                     type='text'
                     placeholder='Title of the Book'
@@ -92,12 +102,18 @@ class CreateBook extends Component {
                     onChange={this.onChange}
                     required
                   />
+                  {
+                    //class for form validation for system security
+                  }
                   <div className="invalid-feedback">
                     Please provide a value.
                   </div>
                 </div>
 
                 <div className='form-group'>
+                  {
+                    //Details for field in the form
+                  }
                   <input
                     type='text'
                     placeholder='ISBN'
@@ -107,12 +123,18 @@ class CreateBook extends Component {
                     onChange={this.onChange}
                     required
                   />
+                  {
+                    //class for form validation for system security
+                  }
                   <div className="invalid-feedback">
                     Please provide a value.
                   </div>
                 </div>
 
                 <div className='form-group'>
+                  {
+                    //Details for field in the form
+                  }
                   <input
                     type='text'
                     placeholder='Author'
@@ -122,12 +144,18 @@ class CreateBook extends Component {
                     onChange={this.onChange}
                     required
                   />
+                  {
+                    //class for form validation for system security
+                  }
                   <div className="invalid-feedback">
                     Please provide a value.
                   </div>
                 </div>
 
                 <div className='form-group'>
+                  {
+                    //Details for field in the form
+                  }
                   <input
                     type='text'
                     placeholder='Describe this book'
@@ -137,12 +165,18 @@ class CreateBook extends Component {
                     onChange={this.onChange}
                     required
                   />
+                  {
+                    //class for form validation for system security
+                  }
                   <div className="invalid-feedback">
                     Please provide a value.
                   </div>
                 </div>
 
                 <div className='form-group'>
+                  {
+                    //Details for field in the form
+                  }
                   <input
                     type='date'
                     placeholder='published_date'
@@ -152,11 +186,17 @@ class CreateBook extends Component {
                     onChange={this.onChange}
                     required
                   />
+                  {
+                    //class for form validation for system security
+                  }
                   <div className="invalid-feedback">
                     Please provide a value.
                   </div>
                 </div>
                 <div className='form-group'>
+                  {
+                    //Details for field in the form
+                  }
                   <input
                     type='text'
                     placeholder='Publisher of this Book'
@@ -166,14 +206,19 @@ class CreateBook extends Component {
                     onChange={this.onChange}
                     required
                   />
+                  {
+                    //class for form validation for system security
+                  }
                   <div className="invalid-feedback">
                     Please provide a value.
                   </div>
                 </div>
-
                 <input type="submit" className="btn btn-outline-success btn-block mt-4"/>
               </form>
 
+              {
+                //function to support form validation when creating a book
+              }
               <script>
                 (function() {
                 window.addEventListener('load', function () {
@@ -190,9 +235,7 @@ class CreateBook extends Component {
                     }, false);
                   });
                 }, false)});
-
               </script>
-
           </div>
           </div>
         </div>

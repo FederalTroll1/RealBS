@@ -3,9 +3,16 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../App.css';
 
+/*The Update Book Information Page Takes the Selected Book from
+* the Book List Page and allows users to make modifications to the entry.
+* There is form validation to ensure that a book cannot be updated to have
+* no values for its fields to maintain data integrity.*/
+
+//create update book info class that uses the book constructor
 class UpdateBookInfo extends Component {
   constructor(props) {
     super(props);
+    //set the values of the current book in the constructor
     this.state = {
       title: '',
       isbn: '',
@@ -16,14 +23,17 @@ class UpdateBookInfo extends Component {
     };
   }
 
+  //fetch the book using it's id to render on screen
   componentDidMount(id) {
-    // console.log("Print id: " + this.props.match.params.id);
+    //split the url to get just the book id stored in the database
     const pathArray = window.location.pathname.split('/');
     const secondLevelLocation = pathArray[2];
+
+    //begin get request using the book id
     axios
       .get('http://localhost:8082/api/books/' + secondLevelLocation)
       .then(res => {
-        // this.setState({...this.state, book: res.data})
+        //get all of the current values stored in the database for the book
         this.setState({
           title: res.data.title,
           isbn: res.data.isbn,
@@ -34,10 +44,11 @@ class UpdateBookInfo extends Component {
         })
       })
       .catch(err => {
-        console.log("Error from UpdateBookInfo");
+        console.log("Error In Update Book Information");
       })
   };
 
+  //on change of state, set the new value when done so by the user
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -45,6 +56,7 @@ class UpdateBookInfo extends Component {
   onSubmit = e => {
     e.preventDefault();
 
+    //get the data of the current book and set its values to the corresponding key
     const data = {
       title: this.state.title,
       isbn: this.state.isbn,
@@ -54,18 +66,22 @@ class UpdateBookInfo extends Component {
       publisher: this.state.publisher
     };
 
+    //get the id of the book from the url
     const pathArray = window.location.pathname.split('/');
     const secondLevelLocation = pathArray[2];
+    //get and send the data from atlas
     axios
       .put('http://localhost:8082/api/books/'+secondLevelLocation, data)
       .then(res => {
         this.props.history.push('/show-book/'+secondLevelLocation);
       })
       .catch(err => {
-        console.log("Error in UpdateBookInfo!");
+        console.log("Error In Update Book Information");
       })
   };
 
+  //Webpage HTML
+  //render in all components for the webpage
   render() {
     return (
       <div className="UpdateBookInfo">
@@ -73,6 +89,9 @@ class UpdateBookInfo extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
+              {
+                //Home and Back buttons
+              }
               <Link to="/" className="btn btn-outline-dark float-left translate-middle badge badge badge-secondary">-Home Page-</Link>
               <Link to="/" className="btn btn-outline-dark float-right translate-middle badge badge badge-secondary">-Back To List-</Link>
             </div>
@@ -99,6 +118,9 @@ class UpdateBookInfo extends Component {
                 onChange={this.onChange}
                 required
               />
+              {
+                //for validation to maintain security
+              }
               <div className="invalid-feedback">
                 Please provide a value.
               </div>
@@ -116,6 +138,9 @@ class UpdateBookInfo extends Component {
                 onChange={this.onChange}
                 required
               />
+              {
+                //for validation to maintain security
+              }
               <div className="invalid-feedback">
                 Please provide a value.
               </div>
@@ -133,6 +158,9 @@ class UpdateBookInfo extends Component {
                 onChange={this.onChange}
                 required
                 />
+              {
+                //for validation to maintain security
+              }
               <div className="invalid-feedback">
                 Please provide a value.
               </div>
@@ -150,6 +178,9 @@ class UpdateBookInfo extends Component {
                 onChange={this.onChange}
                 required
               />
+              {
+                //for validation to maintain security
+              }
               <div className="invalid-feedback">
                 Please provide a value.
               </div>
@@ -167,6 +198,9 @@ class UpdateBookInfo extends Component {
                 onChange={this.onChange}
                 required
               />
+              {
+                //for validation to maintain security
+              }
               <div className="invalid-feedback">
                 Please provide a value.
               </div>
@@ -183,14 +217,24 @@ class UpdateBookInfo extends Component {
                 onChange={this.onChange}
                 required
               />
+              {
+                //for validation to maintain security
+              }
               <div className="invalid-feedback">
                 Please provide a value.
               </div>
             </div>
 
+            {
+              //Submit Button
+            }
             <button type="submit" className="btn btn-outline-success btn-lg btn-block">Update Book</button>
             </form>
 
+            {
+              //Function for the form validation
+              //This ensures that each field has an entry and cannot be submitted empty
+            }
             <script>
               (function() {
               window.addEventListener('load', function () {
@@ -214,5 +258,4 @@ class UpdateBookInfo extends Component {
     );
   }
 }
-
 export default UpdateBookInfo;
